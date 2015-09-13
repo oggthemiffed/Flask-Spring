@@ -8,7 +8,7 @@ class DemoApplicationContext(PythonConfig):
     def __init__(self):
         super (DemoApplicationContext, self).__init__()
 
-    @Object(scope.SINGLETON)
+    @Object(scope.SINGLETON, lazy_init=True)
     def TestObject(self):
         to = TestObject()
         to.message = 'Message set by the object context'

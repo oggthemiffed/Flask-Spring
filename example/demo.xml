@@ -2,9 +2,11 @@
 <objects xmlns="http://www.springframework.org/springpython/schema/objects/1.1"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/springpython/schema/objects/1.1
-               http://springpython.webfactional.com/schema/context/spring-python-context-1.1.xsd">
+            http://springpython.webfactional.com/schema/context/spring-python-context-1.1.xsd">
 
-    <object id="TestObjectXML" class="objects.test_obj.TestObject" scope="singleton">
-        <property name="message"><value>This is a test message that is set by string via XML config</value></property>
+    <object id="TestObjectXML" class="objects.test_obj.TestObject" scope="singleton" lazy-init="True">
+        <property id="message">
+            <value>"my test value"</value>
+        </property>
     </object>
 </objects>
