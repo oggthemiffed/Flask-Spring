@@ -12,11 +12,6 @@ except ImportError:
     from flask import _request_ctx_stack as stack
 
 
-class TestObject(object):
-    def __init__(self):
-        self.blah = 'Bloop'
-
-
 class Spring(object):
     def __init__(self, app=None):
         self.app = app
@@ -29,8 +24,6 @@ class Spring(object):
         app.extensions["spring"] = self
 
         self._context = None
-
-        app.config['sample'] = TestObject()
 
         # set any defaults
         app.config.setdefault('SPRING_YAML', 'spring.yml')
