@@ -1,0 +1,7 @@
+objects:
+    - object: TestObjectYAML
+      class: objects.test_obj.TestObject
+      scope: singleton
+      lazy-init: True
+      properties:
+          message: This is a test message that is set by spring via YAML config
