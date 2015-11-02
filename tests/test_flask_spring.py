@@ -1,14 +1,14 @@
-from flask import Flask
-import pytest
-from flask.ext.spring import Spring
-from resource.demo_context import DemoApplicationContext
-
-__author__ = 'david'
-
 import sys, os
 
 sys.path.append(os.path.realpath(os.path.dirname(__file__) + "/.."))
 sys.path.append(os.path.realpath(os.path.dirname(__file__) + "/resource"))
+
+from flask import Flask
+import pytest
+from flask_spring import Spring
+from resource.demo_context import DemoApplicationContext
+
+__author__ = 'david'
 
 
 class TestMainFlaskSpring:
