@@ -6,7 +6,6 @@ __author__ = 'david'
 
 app = Flask(__name__)
 app.config['SPRING_YAML'] = 'demo.yml'
-app.config['SPRING_XML'] = 'demo.xml'
 app.config['SPRING_OBJS'] = [DemoApplicationContext()]
 
 spring = Spring(app)

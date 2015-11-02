@@ -1,4 +1,4 @@
-from springpython.config import YamlConfig, PyContainerConfig
+from springpython.config import YamlConfig
 from springpython.context import ApplicationContext
 
 __author__ = 'David Anderson'
@@ -19,7 +19,6 @@ class Spring(object):
 
         # set any defaults
         app.config.setdefault('SPRING_YAML', 'spring.yml')
-        app.config.setdefault('SPRING_XML', None)
         app.config.setdefault('SPRING_OBJS', None)
 
     @property
@@ -29,10 +28,6 @@ class Spring(object):
             if self.app.config['SPRING_YAML']:
                 [config_loaders.append(YamlConfig(config_yaml)) for config_yaml in
                  self.app.config['SPRING_YAML'].split(',')]
-
-            if self.app.config['SPRING_XML']:
-                [config_loaders.append(PyContainerConfig(config_xml)) for config_xml in
-                 self.app.config['SPRING_XML'].split(',')]
 
             if self.app.config['SPRING_OBJS']:
                 [config_loaders.append(conf_obj) for conf_obj in self.app.config['SPRING_OBJS']]

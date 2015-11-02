@@ -1,6 +1,6 @@
 import sys, os
 
-sys.path.append(os.path.realpath(os.path.dirname(__file__) + "/.."))
+#sys.path.append(os.path.realpath(os.path.dirname(__file__) + "/.."))
 sys.path.append(os.path.realpath(os.path.dirname(__file__) + "/resource"))
 
 from flask import Flask
@@ -15,7 +15,6 @@ class TestMainFlaskSpring:
     def setup(self):
         self.app = Flask(__name__)
         self.app.config['SPRING_YAML'] = os.path.realpath(os.path.dirname(__file__) + "/resource/demo.yml")
-        self.app.config['SPRING_XML'] = os.path.realpath(os.path.dirname(__file__) + "/resource/demo.xml")
         self.app.config['SPRING_OBJS'] = [DemoApplicationContext()]
         self.spring = Spring(self.app)
 
@@ -36,7 +35,6 @@ class TestMainFlaskSpring:
 
     @pytest.mark.parametrize("obj_id, message", [
         ("TestObjectYAML", "This is a test message that is set by spring via YAML config"),
-        pytest.mark.xfail(reason="XML bug")(("TestObjectXML", "This is a test message that is set by spring via XML config")),
         ("TestObject", "This is a test message that is set by spring via Object context"),
     ])
     def test_load_object_from_config(self, obj_id, message):
