@@ -15,6 +15,7 @@ class TestMainFlaskSpring:
     def setup(self):
         self.app = Flask(__name__)
         self.app.config['SPRING_YAML'] = os.path.realpath(os.path.dirname(__file__) + "/resource/demo.yml")
+        self.app.config['SPRING_XML'] = os.path.realpath(os.path.dirname(__file__) + "/resource/demo.xml")
         self.app.config['SPRING_OBJS'] = [DemoApplicationContext()]
         self.spring = Spring(self.app)
 

@@ -9,7 +9,7 @@ Adds Flywheel support to your Flask application.
 import codecs
 import os
 import re
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def find_version(*file_paths):
@@ -32,15 +32,17 @@ setup(
     author_email="herbaliser1978@gmail.com",
     description="Adds the Spring framework support to your Flask application",
     long_description=__doc__,
-    packages=["flask_spring"],
+    packages=find_packages( include=["flask_spring"], exclude=['contrib', 'docs', 'tests*']),
     zip_safe=False,
     install_requires=[
         "springpython",
+        "flask",
+        "pyyaml"
     ],
     classifiers=[
         "Environment :: Web Environment",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: Apache License",
+        "License :: OSI Approved :: MIT License",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Programming Language :: Python",

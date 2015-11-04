@@ -1,8 +1,8 @@
-from springpython.config import YamlConfig
+from springpython.config import YamlConfig, XMLConfig
 from springpython.context import ApplicationContext
 
 __author__ = 'David Anderson'
-__version__ = "0.0.1-dev"
+__version__ = "0.1.0"
 
 class Spring(object):
     def __init__(self, app=None):
@@ -18,8 +18,9 @@ class Spring(object):
         app.extensions["spring"] = self
 
         # set any defaults
-        app.config.setdefault('SPRING_YAML', 'spring.yml')
+        app.config.setdefault('SPRING_YAML', None)
         app.config.setdefault('SPRING_OBJS', None)
+        app.config.setdefault('SPRING_XML', None)
 
     @property
     def context(self):
@@ -28,6 +29,10 @@ class Spring(object):
             if self.app.config['SPRING_YAML']:
                 [config_loaders.append(YamlConfig(config_yaml)) for config_yaml in
                  self.app.config['SPRING_YAML'].split(',')]
+
+            if self.app.config['SPRING_XML']:
+                [config_loaders.append(XMLConfig(config_xml)) for config_xml in
+                 self.app.config['SPRING_XML'].split(',')]
 
             if self.app.config['SPRING_OBJS']:
                 [config_loaders.append(conf_obj) for conf_obj in self.app.config['SPRING_OBJS']]
