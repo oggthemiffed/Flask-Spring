@@ -1,7 +1,14 @@
 language: python
 python:
-  - "2.7"
-# command to install dependencies
-install: "pip install -r requirements.txt"
-# command to run tests
+- '2.7'
+install: pip install -r requirements.txt
 script: py.test
+deploy:
+  provider: pypi
+  user: pibcak
+  password:
+    secure: EynZByDIIXqLHcuGjwJ0M/S9ju9i2Fog5+pU881n85bRWfgGaAArNdBgO+v7kmfZ8xqoNs/m98R4jNYzra0IhZONlzqAm5sDFPge1JDK06frU3agXYJOmeNLOdI1OhpkjBUL+6NnL/d/nhTcYqrmibIX5OJBNRts3cKR6Zv3XGVrlGK0ZdaIbiGAPR3ZM1xi0urIdWdf4YEIDNxFusisfR3uQhuIqB3mkVywvMvlN2NlocSsm8dlyMhHfWHVMKq/Hi3MIGIqQDhoDdX/5aG0CINeivFACXacTlsEvtJ3nfTzni9j4E4rHmRwJnCZ43uOpYiT/nZj82esFPC67eOJx7DnqNYeJXhSgUtUftuYyi0dGl75iWxTQzozf06JUzZNpnULge6HZhnWIzl7M20nG3fxRNXCQly/oTqlm5XLHqpBOrT+m0XHUcy3W3gyMo76sq825P40FUDocMkRU0d/KSp75XE9NDYvOZSL+nI1uHFSCD9pxoRzGm0S/3R6p2VcKes0IGDdIdDQA7GNn+celeG53sSnnh0ge5HMe017VpM8oi+KCU/zPdUvK7109TAkBnWrERr0zJzfAr5222SYbXdvmaAGIhCCG1FWVRkY2e1UuaY28givkzlYxVV0156azFR/yU/DpT38WUczo0FOsS8qPzFPEOE3aHqD/ky4Izk=
+  distributions: "sdist bdist_wheel"
+  on:
+    tags: true
+    repo: oggthemiffed/Flask-Spring
