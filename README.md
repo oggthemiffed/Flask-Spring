@@ -3,7 +3,7 @@ A flask module to integrate spring framework into a flask application
 
 Build Status: [![Build Status](https://travis-ci.org/oggthemiffed/Flask-Spring.svg?branch=master)](https://travis-ci.org/oggthemiffed/Flask-Spring)
 [![PyPI version](https://badge.fury.io/py/flask-spring.svg)](https://badge.fury.io/py/flask-spring)
-[![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://github.com/oggthemiffed/flask-flywheel/blob/master/LICENSE)]
+[![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://github.com/oggthemiffed/flask-flywheel/blob/master/LICENSE)
 
 ## Installation
 
